@@ -1,0 +1,42 @@
+void on_partiboot_changed(GtkWidget* widget, gpointer data) {
+  
+  gchar *disk_boot;
+  gchar *commandline, **command;
+
+  listwidget = (GtkComboBox *) gtk_builder_get_object(builder, "partiboot");
+  gtk_combo_box_get_active_iter(listwidget, &iter);
+  list = (GtkListStore *) gtk_combo_box_get_model(listwidget);
+  gtk_tree_model_get((GtkTreeModel *) list, &iter, 0, &disk_boot, -1);
+  if (strlen(disk_boot) == 0) {
+    g_free(disk_boot);
+    disk_boot = g_strdup(NULL);         
+  }
+
+
+  printf("Partición Boot: %s \n", disk_boot);
+
+
+commandline = g_strdup_printf("sed -i '11c partiboot=%c%s%c' bash/variables.sh", 34,disk_boot,34);
+g_shell_parse_argv(commandline, NULL, &command, NULL);
+g_free(commandline);
+g_spawn_async(NULL, command, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, NULL);
+
+
+char* nombreboot;
+g_spawn_command_line_sync ("sudo sh bash/variables.sh boot", &nombreboot, NULL, NULL, NULL);
+gtk_label_set_label (diskboot, nombreboot);
+
+}
+
+
+
+
+
+	GtkComboBox *listwidget;
+	GtkListStore *list;
+	// clear copydevices
+	listwidget = (GtkComboBox *) gtk_builder_get_object(builder, "partiboot");
+	list = (GtkListStore *) gtk_combo_box_get_model(listwidget);
+	gtk_list_store_clear (list) ;
+
+	listaboot();

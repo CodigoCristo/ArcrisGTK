@@ -1,0 +1,40 @@
+list {
+    background-image: none;
+    background-color: transparent;
+}
+
+scrolledwindow {
+    background-image: none;
+    background-color: transparent;
+}
+
+window {
+    background-color: #1A1A1A;
+}
+
+#arc {
+    background-color: #222B33;
+    box-shadow: none;
+    color: #1794D1;
+}
+
+#temacolor {
+    background-color: #222B33;
+    box-shadow: none;
+    color: white;
+}
+
+
+#separator {
+    background-color: #0F0F0F;
+    box-shadow: 0px 0px 2px 1px alpha(#1D1D1D, 10.50);
+    color: #0F0F0F;
+}
+
+.sidebar:disabled * {
+  -gtk-icon-effect: none;
+  opacity: 1;
+  color: #ffffff;
+}
+
+* { outline: none; }

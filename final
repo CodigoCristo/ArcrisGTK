@@ -1,0 +1,64 @@
+#!/bin/sh
+
+
+#!/bin/bash
+trap '' 2 20
+
+BUCLE() {
+#echo -n "PRESIONA (/ or *)? "
+while read -rsn1 answer ; do 
+  if [[ $answer = [¬·] ]]; then
+    [[ $answer = [¬] ]] && retval=0
+    [[ $answer = [·] ]] && retval=1
+
+    break
+  fi
+done
+
+return $retval
+
+}
+
+
+red='\033[38;2;255;1;31m'
+clear
+echo ""
+echo ""
+echo ""
+echo -e $red '			                   -`                  '
+echo -e $red '			                 .o+`                  '
+echo -e $red '			                 `ooo/                   '
+echo -e $red '			                `+oooo:                 '
+echo -e $red '			               `+oooooo:                 ' 
+echo -e $red '			               -+oooooo+:                '
+echo -e $red '			             `/:-:++oooo+:              '
+echo -e $red '			            `/++++/+++++++:              '
+echo -e $red '			           `/++++++++++++++:             '
+echo -e $red '			          `/+++ooooooooooooo/`           '
+echo -e $red '			         ./ooosssso++osssssso+`          '
+echo -e $red '			        .oossssso-````/ossssss+`         '
+echo -e $red '			       -osssssso.      :ssssssso.        '
+echo -e $red '			      :osssssss/        osssso+++.       '
+echo -e $red '			     /ossssssss/        +ssssooo/-       '
+echo -e $red '			   `/ossssso+/:-        -:/+osssso+-     '
+echo -e $red '			  `+sso+:-`                 `.-/+oso:    '
+echo -e $red '			 `++:.                           `-/+/   '
+echo -e $red '			 .`                                 `/   '
+echo ""
+echo -e $red "		      Visita el Canal de Youtube de Código Cristo"
+echo -e '\033[m'
+
+### 
+
+if BUCLE; then
+  echo "0..."
+else
+  echo "1..."
+fi
+
+
+
+trap 2 20
+
+
+
